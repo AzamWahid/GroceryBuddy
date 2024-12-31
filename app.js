@@ -9,15 +9,17 @@ function add() {
     if (userInput.value != '') {
         groceryList.push(userInput.value);
     }
-    console.log(groceryList)
 
     updateUI();
     userInput.value = '';
 }
 
 function edit(button) {
-    const listItemDiv = button.parentElement;
-    let currentText = listItemDiv.querySelector('.listItemText').innerText;
+
+    const listItemBtnDiv = button.parentElement;
+    const listItemDiv = listItemBtnDiv.previousElementSibling;
+
+    let currentText = listItemDiv.innerHTML;
     userInput.value = currentText;
     addBtn.innerText = 'Update';
     addBtn.setAttribute('onclick', `update('${currentText}')`);
@@ -29,7 +31,6 @@ function update(oldText) {
         let itemIndex = groceryList.indexOf(oldText);
         groceryList[itemIndex] = userInput.value;
     }
-    console.log(groceryList)
 
     updateUI();
 
@@ -42,13 +43,15 @@ function update(oldText) {
 
 function deleteItem(button) {
 
-    const listItemDiv = button.parentElement;
-    let oldText = listItemDiv.querySelector('.listItemText').innerText;
+   
+    const listItemBtnDiv = button.parentElement;
+    const listItemDiv = listItemBtnDiv.previousElementSibling;
+    console.log(listItemDiv.id)
 
-    let itemIndex = groceryList.indexOf(oldText);
+
+    let itemIndex = listItemDiv.id;
     groceryList.splice(itemIndex, 1)
 
-    console.log(groceryList)
 
     updateUI();
 }
@@ -56,11 +59,14 @@ function deleteItem(button) {
 
 function updateUI() {
     listsDiv.innerHTML = '';
-    groceryList.forEach(function (listItem) {
+    groceryList.forEach(function (listItem, index) {
 
-        listsDiv.innerHTML += `<div class="listItem"><span class="listItemText">${listItem}</span>
-            <button onclick="edit(this)">Edit</button>
-            <button onclick="deleteItem(this)">Delete</button>
-            </div>`
+        listsDiv.innerHTML += `<div class="listItem">
+                                    <div class="listItemText" id="${index}">${listItem}</div>
+                                    <div class="listItemBtn">
+                                        <i onclick="edit(this)" class="fa-regular fa-pen-to-square fa-lg" style="color: #058a62;"></i>
+                                        <i onclick="deleteItem(this)" class="fa-solid fa-trash" style="color: #f02d2d;"></i>
+                                    </div>
+                                </div>`
     })
 }
