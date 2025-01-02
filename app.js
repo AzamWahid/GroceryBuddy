@@ -43,7 +43,7 @@ function update(oldText) {
 
 function deleteItem(button) {
 
-   
+
     const listItemBtnDiv = button.parentElement;
     const listItemDiv = listItemBtnDiv.previousElementSibling;
     console.log(listItemDiv.id)
@@ -56,6 +56,10 @@ function deleteItem(button) {
     updateUI();
 }
 
+function clearTodo() {
+    groceryList.length = 0;
+    updateUI();
+}
 
 function updateUI() {
     listsDiv.innerHTML = '';

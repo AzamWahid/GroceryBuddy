@@ -36,6 +36,16 @@ body {
     text-align: center;
 }
 
+h1 {
+    color: green;
+}
+.addBtn {
+
+    border: 2px solid green;
+}
+input {
+    border: 2px solid green;
+}
 .lists {
     overflow: scroll;
     overflow-x: hidden;
@@ -55,9 +65,9 @@ body {
     padding: 8px 0px;
     border: 1px solid rgb(116 181 115 / 75%);
     margin-bottom: 5px;
-    box-shadow: 0px 7px 5px 0px rgb(135 237 133 / 75%);
-    -webkit-box-shadow: 0px 7px 5px 0px rgb(135 237 133 / 75%);
-    -moz-box-shadow: 0px 7px 5px 0px rgb(135 237 133 / 75%);
+    box-shadow: 0px 2px 2px 0px rgb(135 237 133 / 75%);
+    -webkit-box-shadow: 0px 2px 2px 0px rgb(135 237 133 / 75%);
+    -moz-box-shadow: 0px 2px 2px 0px rgb(135 237 133 / 75%);
     border-radius: 5px;
 }
 
@@ -76,16 +86,28 @@ body {
     align-items: center;
     gap: 20px;
 }
+
 i {
     cursor: pointer;
 }
+
 .footer {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
 }
 
+button {
+    padding: 3px 10px;
+    border-radius: 5px;
+}
 
+.footerBtn {
+    border: 0px;
+    background-color: transparent;
+    color: green;
+    text-decoration: underline;
+}
 
 /* media quries */
 
